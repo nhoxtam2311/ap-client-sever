@@ -1,0 +1,21 @@
+server:
+  port: 8080
+security:
+  oauth2:
+    client:
+      client-id: myclient1
+      client-secret: mysecret1
+      authorized-grant-types:
+      - password
+      - authorization_code
+      - refresh_token
+      - implicit
+      auto-approve-scopes:
+      - user_info
+      scope:
+      - user_info
+      accessTokenUri: http://localhost:9999/auth/oauth/token
+      userAuthorizationUri: http://localhost:9999/auth/oauth/authorize
+    resource:
+      userInfoUri: http://localhost:9999/auth/user/me
+
