@@ -18,4 +18,18 @@ security:
       userAuthorizationUri: http://localhost:9999/auth/oauth/authorize
     resource:
       userInfoUri: http://localhost:9999/auth/user/me
-
+zuul:  
+  sensitiveHeaders: Cookie,Set-Cookie
+  add-host-header: true
+  routes:
+    contracts:
+      path: /graphql/**
+      url: http://localhost:8082/graphql
+      strip-prefix: false
+      
+    subscriptions:
+      path: /subscriptions/**
+      url: http://localhost:8083/subscriptions
+    auth:
+      path: /auth/**
+      url: http://localhost:9999/auth
