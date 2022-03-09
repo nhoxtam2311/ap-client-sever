@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController
 @Configuration
 @EnableOAuth2Sso
 class UiSecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	
+	
 	@Override
 	void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable()
@@ -20,6 +23,8 @@ class UiSecurityConfig extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
             .anyRequest()
             .authenticated()
+		  
+		
 	}
 }
 
