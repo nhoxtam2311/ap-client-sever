@@ -18,12 +18,11 @@ class UiSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Override
 	void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable()
+		http.csrf().disable().logout().logoutSuccessUrl('http://localhost:9999/auth/logout').and()
         	.antMatcher("/**")
             .authorizeRequests()
             .anyRequest()
             .authenticated()
-		  
 		
 	}
 }
